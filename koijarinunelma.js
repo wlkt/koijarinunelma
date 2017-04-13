@@ -19,6 +19,7 @@ app.use(function(req, res) {
 	res.send('404 - Sivua ei löydy.');
 });
 
+// 500 virhesivu
 app.use(function(err, req, res, next){
 
 	console.error(err.stack);
