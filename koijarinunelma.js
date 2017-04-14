@@ -1,8 +1,8 @@
 var express = require('express');
+var path = require('path');
+var exphbs = require('express-handlebars');
 
 var app = express();
-
-app.set('port', process.env.PORT || 3000);
 
 // Yksinkertainen aloitussivu
 app.get('/', function(req, res){
@@ -28,6 +28,7 @@ app.use(function(err, req, res, next){
 	res.send('500 - Palvelinvirhe.');
 });
 
+app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function() {
 
 	console.log('Express käynnistyi osoitteella http://localhost:' + app.get('port') + '; Paina Ctrl-C lopettaaksesi.');
