@@ -4,29 +4,19 @@ var exphbs = require('express-handlebars');
 
 var app = express();
 
-// Yksinkertainen aloitussivu
-app.get('/', function(req, res){
-	
-	res.type('text/plain');
-	res.send('Galleria Koijarin Unelma');
-});
+var index = require('./routes/index');
+var users = require('./routes/users');
 
-// 404 sivu
-app.use(function(req, res) {
+// View Enginen asetus
+app.set('views', path.join(__dirname, 'views'));
+app.engine('handlebars', exphbs({defaultLayout:'layout'}));
+app.set('view engine', 'handlebars');
 
-	res.type('text/plain');
-	res.status(404);
-	res.send('404 - Sivua ei löydy.');
-});
+// Staattisten asetus, public kansio
+app.use(express.static(path.join(__dirname, 'public')));
 
-// 500 virhesivu
-app.use(function(err, req, res, next){
-
-	console.error(err.stack);
-	res.type('text/plain');
-	res.status(500);
-	res.send('500 - Palvelinvirhe.');
-});
+app.use('/', index);
+app.use('/users', users);
 
 app.set('port', process.env.PORT || 3000);
 app.listen(app.get('port'), function() {
