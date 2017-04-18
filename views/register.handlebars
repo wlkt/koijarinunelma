@@ -1,5 +1,14 @@
 <h2> Rekisteröidy </h2>
 
+{{! Validoinnin virhe-flashviestit }}
+
+{{#if errors}}
+	{{#each errors}}
+		<div class="alert alert-danger"> {{msg}} </div>
+	{{/each}}
+{{/if}}
+
+
 <form method="post" action="/users/register">
 
 	<div class="form-group">
