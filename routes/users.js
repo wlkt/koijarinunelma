@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var User = require('../models/user');
+
 // Rekisteröidy
 router.get('/register', function(req, res){
 	
@@ -38,7 +40,22 @@ router.post('/register', function(req, res){
 	}
 	else{
 
-		console.log('Validointi onnistui');
+	var newUser = new User({
+		name: name,
+		email: email,
+		username: username,
+		password: password
+		});
+
+	User.createUser(newUser, function(err, user){
+		
+		if(err) throw err;
+		console.log(user);
+	});
+
+	req.flash('success_msg', 'Rekisteröinti onnistui. Voit nyt kirjautua sivulle.');
+
+	res.redirect('/users/login');
 	}
 });
 
