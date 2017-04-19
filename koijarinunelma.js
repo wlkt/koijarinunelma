@@ -29,6 +29,10 @@ var opts = {
 // Tietokantayhteys
 mongoose.connect(credentials.mongo.development.connectionString, opts);
 
+// Kirjautumisen moduulit
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
 // Sovellus
 var app = express();
 
@@ -51,6 +55,10 @@ app.use(session({
     saveUninitialized: true,
     resave: true
 }));
+
+// Passportin käyttö
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Express Validatorin käyttö
 app.use(expressValidator({
