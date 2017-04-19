@@ -9,20 +9,36 @@ var bodyParser = require('body-parser');
 var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 
-// Reitit
+// Credentials tiedosto
+var credentials = require('./credentials.js');
+
+// Reittien asetus
 var index = require('./routes/index');
 var users = require('./routes/users');
 
+// Tietokannan asetukset
+var mongoose = require('mongoose');
+
+var opts = {
+
+	server: {
+		socketOptions: { keepAlive: 1 }
+	}
+};
+
+// Tietokantayhteys
+mongoose.connect(credentials.mongo.development.connectionString, opts);
+
 // Sovellus
 var app = express();
-
-// Staattisten asetus, public kansio
-app.use(express.static(path.join(__dirname, 'public')));
 
 // View Enginen asetus
 app.set('views', path.join(__dirname, 'views'));
 app.engine('handlebars', exphbs({defaultLayout:'layout'}));
 app.set('view engine', 'handlebars');
+
+// Staattisten asetus, public kansio
+app.use(express.static(path.join(__dirname, 'public')));
 
 // BodyParser Middlewaren käyttö
 app.use(bodyParser.json());
@@ -31,7 +47,7 @@ app.use(cookieParser());
 
 // Express Sessionin käyttö, tilapäisellä secretillä
 app.use(session({
-    secret: 'secret',
+    secret: credentials.cookieSecret,
     saveUninitialized: true,
     resave: true
 }));
@@ -66,7 +82,7 @@ app.use(function (req, res, next) {
   next();
 });
 
-// Reitit
+// Reittien käyttö
 app.use('/', index);
 app.use('/users', users);
 
