@@ -1,8 +1,8 @@
 # koijarinunelma
 
 kloonauksen jälkeen npm install
-huom. 
-tilapäinen secret tulee muuttaa ympäristöä vaihtaessa 
+
+huom. tilapäinen secret tulee muuttaa ympäristöä vaihtaessa 
 
 Esimerkki credentials.js kurssin kirjasta. Korvaa [] merkitty sisältö
 
