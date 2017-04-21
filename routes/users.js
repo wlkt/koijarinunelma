@@ -68,13 +68,13 @@ passport.use(new LocalStrategy(
 		
 			if(err) throw err;
 			if(!user) {
-				return done(null, false, { message: 'Unknown User' });
+				return done(null, false, { message: 'Tuntematon käyttäjä' });
 			}
 			User.comparePassword(password, user.password, function(err, isMatch){
 
 				if(err) throw err;
 				if(isMatch) { return done(null, user);}
-				else { return done(null, false, { message: 'Invalid password' });}
+				else { return done(null, false, { message: 'Salasana on väärä' });}
 		});
 	});
   }
@@ -100,7 +100,7 @@ router.post('/login', passport.authenticate('local', {successRedirect: '/', fail
 router.get('/logout', function(req, res){
 
 	req.logout();
-	req.flash('success_msg', 'You are logged out');
+	req.flash('success_msg', 'Olet kirjautunut ulos');
 	res.redirect('/users/login');
 });
 

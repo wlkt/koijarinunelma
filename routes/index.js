@@ -13,15 +13,14 @@ router.get('/', function(req, res){
 });
 
 router.get('/edit', ensureAuthd.ensureAuthd, function(req, res){
-    var now = new Date();
-    res.render('edit', { year: now.getFullYear(), month: now.getMonth() });
+    res.render('edit');
 });
 
 router.post('/edit', ensureAuthd.ensureAuthd, function(req, res){
     var form = new formidable.IncomingForm();
 	form.uploadDir = './public/img/gallery';
     form.parse(req, function(err, fields, files){
-        if(err) return res.redirect(303, '/error'); // error puuttuu
+        if(err) { req.flash(req.flash('error_msg', 'Lähetyksessä tapahtui virhe'); return res.redirect(303, '/'); }
         console.log('received fields:');
         console.log(fields);
         console.log('received files:');
