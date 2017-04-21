@@ -1,6 +1,9 @@
 # Credentials
 credentials.js
 
+# Binary files
+public/img
+
 # Logs
 logs
 *.log

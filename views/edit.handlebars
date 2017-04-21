@@ -1,0 +1,32 @@
+<h2 class="page-header"> Muokkaa galleriaa </h2>
+
+<form class="form-horizontal" role="form" 
+		enctype="multipart/form-data" method="POST"
+		action="/edit">
+	<div class="form-group">
+		<label for="fieldName" class="col-sm-2 control-label">Taiteilija</label>
+		<div class="col-sm-4">
+			<input type="text" class="form-control" 
+			id="fieldName" name="name">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="fieldEmail" class="col-sm-2 control-label">Sähköposti</label>
+		<div class="col-sm-4">
+			<input type="email" class="form-control" required 
+				id="fieldEmail" name="email">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="fieldPhoto" class="col-sm-2 control-label">Teos</label>
+		<div class="col-sm-4">
+			<input type="file" class="form-control" required accept="image/*"
+				id="fieldPhoto" data-url="/upload" name="photo" style="height:100%; padding: 6px 0px; border: 0px; webkit-box-shadow: 0px; box-shadow: inset 0 0px rgba(0,0,0,0);">
+		 </div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-4">
+			<button type="submit" class="btn btn-primary">Submit</button>
+		</div>
+	</div>
+</form>
