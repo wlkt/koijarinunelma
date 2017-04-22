@@ -20,7 +20,7 @@ router.post('/edit', ensureAuthd.ensureAuthd, function(req, res){
     var form = new formidable.IncomingForm();
 	form.uploadDir = './public/img/gallery';
     form.parse(req, function(err, fields, files){
-        if(err) { req.flash(req.flash('error_msg', 'Lähetyksessä tapahtui virhe'); return res.redirect(303, '/'); }
+        if(err) { req.flash('error_msg', 'Lähetyksessä tapahtui virhe'); return res.redirect(303, '/'); }
         console.log('received fields:');
         console.log(fields);
         console.log('received files:');

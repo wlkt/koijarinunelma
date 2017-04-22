@@ -17,7 +17,7 @@ router.get('/login', function(req, res) {
 	res.render('login');
 });
 
-// Lähetä rekisteröintilomake (kesken), validointi
+// Lähetä rekisteröintilomake, validointi
 router.post('/register', function(req, res){
 	
 	var name = req.body.name;
@@ -51,8 +51,8 @@ router.post('/register', function(req, res){
 
 	User.createUser(newUser, function(err, user){
 		
-		if(err) throw err;
-		console.log(user);
+		if(err) { throw err };
+		//console.log(user);
 	});
 
 	req.flash('success_msg', 'Rekisteröinti onnistui. Voit nyt kirjautua sivulle.');
