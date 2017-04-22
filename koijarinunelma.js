@@ -33,6 +33,9 @@ mongoose.connect(credentials.mongo.development.connectionString, opts);
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
+// Tiedostojen lähetys
+var formidable = require('formidable');
+
 // Sovellus
 var app = express();
 
