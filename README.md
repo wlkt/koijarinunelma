@@ -2,8 +2,6 @@
 
 kloonauksen jälkeen npm install
 
-Etusivun reitti on kirjautumisen takana malliksi. Vaihdetaan ylläpitotoimintojen sivuun myöhemmin.
-
 Esimerkki credentials.js kurssin kirjasta. Korvaa [] merkitty sisältö
 
 module.exports = {
