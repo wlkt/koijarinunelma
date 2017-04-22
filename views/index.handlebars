@@ -1,2 +1,13 @@
-<h2 class="page-header"> Etusivu </h2>
+<h2 class="page-header"> Teokset </h2>
 <p> Tervetuloa Koijarin Unelmaan! </p>
+{{#each images}}
+
+	<div class="image">
+
+		<h3> {{name}} </h3>	
+		<p> {{email}} </p>
+		<img class="image" src="{{imgPath}}" style="height:150px; width:150px;">
+
+	</div>
+
+{{/each}}
