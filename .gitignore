@@ -3,6 +3,7 @@ credentials.js
 
 # Binary files
 public/img/gallery/*
+!dummyfile
 
 # Logs
 logs
