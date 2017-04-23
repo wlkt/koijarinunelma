@@ -102,9 +102,8 @@ img.image:hover {
     position: fixed;
     /* Muun sisällön päällä */
     z-index: 1;
-    /* Hieman tilaa yläpuolella ja vasemmalla */
+    /* Hieman tilaa yläpuolella */
     padding-top: 100px;
-    padding-left: 100px;
     
     /* Mahdollistetaan skrollaus tarvittaessa. */
     overflow: auto;
@@ -112,7 +111,7 @@ img.image:hover {
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal-content {
+.modalImgContent {
     margin: auto;
     display: block;
   }
