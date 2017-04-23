@@ -2,7 +2,7 @@
 credentials.js
 
 # Binary files
-public/img
+public/img/gallery/*
 
 # Logs
 logs
