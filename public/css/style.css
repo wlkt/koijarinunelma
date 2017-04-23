@@ -89,4 +89,48 @@ footer{
 img.image:hover {
   opacity: 0.5;
   cursor: pointer;
+  transition: 0.4s;
 }
+
+
+/* Modal määrittelyt alkaa */
+
+.modal {
+    /* Vakiona piilotettu */
+    display: none;
+
+    position: fixed;
+    /* Muun sisällön päällä */
+    z-index: 1;
+    /* Hieman tilaa yläpuolella */
+    padding-top: 100px;
+    
+    /* Mahdollistetaan skrollaus tarvittaessa. */
+    overflow: auto;
+    /* Tummennettu tausta. */
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modalImgContent {
+    margin: auto;
+    display: block;
+  }
+
+/* Nappi jolla suljetaan */
+.close {
+    /* Sijainti määrittelyt*/
+    position: absolute;
+    top: 15px;
+    right: 35px;
+
+    color: #F1F1F1;
+    font-size: 40px;
+    transition: 0.4s;
+}
+
+.close:hover {
+    color: #BBB;
+    cursor: pointer;
+}
+
+/* Modal määrittelyt loppuu */
