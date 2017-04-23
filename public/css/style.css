@@ -85,3 +85,8 @@ body {
 footer{
 	margin-top:40px;
 }
+
+img.image:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
