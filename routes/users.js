@@ -36,28 +36,44 @@ router.post('/register', function(req, res){
 
 	var errors = req.validationErrors();
 	
+
 	if(errors){
 
 		res.render('register', { errors: errors });
 	}
-	else{
 
-	var newUser = new User({
-		name: name,
-		email: email,
-		username: username,
-		password: password
-		});
+	else {	
 
-	User.createUser(newUser, function(err, user){
+		// Olemassa olevan käyttäjänimen tarkistus
+		User.count({username: username}, function (err, count){ 
+			if(count>0){
+
+				req.flash('error_msg', 'Käyttäjänimi on jo olemassa');
+
+				res.redirect('/users/register');
+			}
+
+			else {
+
+				var newUser = new User({
+				name: name,
+				email: email,
+				username: username,
+				password: password
+				});
+
+				User.createUser(newUser, function(err, user){
 		
-		if(err) { throw err };
-		//console.log(user);
-	});
+				if(err) { throw err };
+				//console.log(user);
 
-	req.flash('success_msg', 'Rekisteröinti onnistui. Voit nyt kirjautua sivulle.');
+				req.flash('success_msg', 'Rekisteröinti onnistui. Voit nyt kirjautua sivulle.');
 
-	res.redirect('/users/login');
+				res.redirect('/users/login');
+
+				});
+			}
+		});
 	}
 });
 
