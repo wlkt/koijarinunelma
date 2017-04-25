@@ -13,7 +13,7 @@
           <ul class="nav nav-pills pull-right">
             <li role="presentation"><a href="/" title="Etusivu"><span class="glyphicon glyphicon-home"></span></a></li>
 			{{#if user}}
-			<li role="presentation"><a href="/edit" title="Muokkaa galleriaa"><span class="glyphicon glyphicon-edit"></span></a></li>
+			<li role="presentation"><a href="/edit" title="Muokkaa galleriaasi"><span class="glyphicon glyphicon-edit"></span></a></li>
             <li role="presentation"><a href="/users/logout" title="Kirjaudu ulos"><span class="glyphicon glyphicon-log-out"></span></a></li>
 			{{else}}
             <li role="presentation"><a href="/users/login" title="Kirjaudu sisään"><span class="glyphicon glyphicon-log-in"></a></li>
@@ -21,7 +21,7 @@
 			{{/if}}
 
 			{{#if user}}
-			<li> Käyttäjä {{user.username}} </li>
+			<li> <span class="glyphicon glyphicon-user" style="color:#0073e6"></span> {{user.username}} </li>
 			{{/if}}
           </ul>
 
