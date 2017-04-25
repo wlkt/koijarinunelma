@@ -19,7 +19,12 @@
             <li role="presentation"><a href="/users/login">Kirjaudu</a></li>
             <li role="presentation"><a href="/users/register">Rekisteröidy</a></li>
 			{{/if}}
+
+			{{#if user}}
+			<li> Käyttäjä {{user.username}} </li>
+			{{/if}}
           </ul>
+
         </nav>
         <h3 class="text-muted">Galleria Koijarin Unelma</h3>
       </div>

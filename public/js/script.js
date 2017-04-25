@@ -1,4 +1,3 @@
-
 // Kaikki img elementit joilla on class image
 // Kun kuvaa painetaan näyttää kuvan pop-uppina.
 $("img.image").click(function(eventInfo){
