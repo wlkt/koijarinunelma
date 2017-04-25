@@ -30,3 +30,23 @@
 		</div>
 	</div>
 </form>
+<h2> Omistamasi teokset: </h2>
+
+{{#each images}}
+
+	<div class="userimage">
+
+			<h3> {{name}} </h3>	
+			<p> {{email}} </p>
+			<img class="deleteimage" src="{{imgPath}}" style="height:150px; width:150px;">
+			<br>
+			<form id="deleterequest" action="/edit/remove" method="post">
+			<input id="file" name="file" type="hidden" />
+			<button id="removebutton" class="btn btn-default"> Poista </button>
+			</form>
+	</div>
+
+{{/each}}
+
+<script src="js/jquery-3-2-1-min.js"></script>
+<script src="js/userimage.js"></script>
