@@ -11,13 +11,13 @@
       <div class="header clearfix">
         <nav>
           <ul class="nav nav-pills pull-right">
-            <li role="presentation"><a href="/">Etusivu</a></li>
+            <li role="presentation"><a href="/" title="Etusivu"><span class="glyphicon glyphicon-home"></span></a></li>
 			{{#if user}}
-			<li role="presentation"><a href="/edit">Muokkaa galleriaa</a></li>
-            <li role="presentation"><a href="/users/logout">Kirjaudu ulos</a></li>
+			<li role="presentation"><a href="/edit" title="Muokkaa galleriaa"><span class="glyphicon glyphicon-edit"></span></a></li>
+            <li role="presentation"><a href="/users/logout" title="Kirjaudu ulos"><span class="glyphicon glyphicon-log-out"></span></a></li>
 			{{else}}
-            <li role="presentation"><a href="/users/login">Kirjaudu</a></li>
-            <li role="presentation"><a href="/users/register">Rekisteröidy</a></li>
+            <li role="presentation"><a href="/users/login" title="Kirjaudu sisään"><span class="glyphicon glyphicon-log-in"></a></li>
+            <li role="presentation"><a href="/users/register" title="Rekisteröidy"><span class="glyphicon glyphicon-plus"></span></a></li>
 			{{/if}}
 
 			{{#if user}}
